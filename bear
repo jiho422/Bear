@@ -14,23 +14,23 @@ public class Bear extends GameObject{
 			case 'a' : x--;
 				if(x < 0) {
 					x = 0;
-					break;
 				}
+				break;
 			case 'f' : x++;
-			if(x >= Game.MAX_X) {
-				x = Game.MAX_X-1;
+				if(x >= Game.MAX_X) {
+					x = Game.MAX_X-1;
+				}
 				break;
-			}
 			case 'd' : y--;
-			if(y < 0) {
-				y = 0;
+				if(y < 0) {
+					y = 0;
+				}
 				break;
-			}
 			case 's' : y++;
 				if(y >= Game.MAX_Y) {
 					y = Game.MAX_Y-1;
-					break;
-			}
+				}
+				break;
 		}
 	}
 	protected char getShape() {
