@@ -20,9 +20,35 @@ public class Game {
 		state = 0;
 	}
 	
-	public void run() {
+	public void run() {		//하나의 메소드는 하나의 기능만 포함해야 한다.
 		System.out.println("** Bear의 Fish 먹기 게임을 시작합니다. **");
+		update();
 		draw();  //초기 게임 맵을 보여주는 역할
+		
+		while(!doesEnd()) {
+			clear();
+			for(int i=0;i<m.length;i++) {
+				m[i].move();
+			}
+			update();
+			draw();
+		}
+		state = 2;
+		if(state == 2) {			
+			System.out.println("Bear wins!!");
+		}
+	}
+	
+	private void clear() {
+		for(int i = 0;i<m.length;i++) {
+			map[m[i].getY()][m[i].getX()] = '-';
+		}
+	}
+	
+	private void update() {
+		for(int i = m.length-1; i>=0; i--) {
+			map[m[i].getY()][m[i].getX()] = m[i].getShape();
+		}
 	}
 	
 	private void draw() {
@@ -34,5 +60,12 @@ public class Game {
 			}
 			System.out.println();
 		}
+	}
+	
+	private boolean doesEnd() {
+		if(m[0].collide(m[1])) {
+			return true;
+		}
+		return false;
 	}
 }
