@@ -1,0 +1,56 @@
+package exceptionproject;
+
+public class ExceptionTest {
+
+	public static void main(String[] args) throws Exception{ 	   //예외 떠넘기기 throws를 통해 떠넘기기(Method2 -> Method1 ->main)
+//		try {		//try 구문은 하나지만 catch구문은 여러개가 있을 수 있음
+//			
+//		}catch(예외타입1) {
+//			
+//		}catch(예외타입2) {
+//			
+//		}catch(예외타입3) {
+//			
+//		}finally {
+//			
+//		}
+//		try {
+//			int number = 100;
+//			int result = 0;
+//			
+//			for(int i=0;i<10;i++) {
+//				result = number / (int)(Math.random() * 10);
+//				System.out.println(result);
+//			}
+//		}catch(Exception e) {		//Exception 예외 클래스의 타입은 모든 예외클래스들의 조상, 정확한 예외가 뭔지 모를 때 주로 사용
+//			System.out.println("0으로 나누지 마세요.");
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}finally {
+//			System.out.println("마지막으로 반드시 한 번 실행한다.");
+//		}
+	}
+}
+//		try {
+//			throw new Exception("내가 발생시켰다.");
+//		}catch(Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+		
+//		Method1();
+//		
+//	}
+//	
+//	static void Method1() throws Exception{
+//
+//		Method2();
+//		
+//	}
+//	
+//	static void Method2() throws Exception{
+//		
+//		throw new Exception("오류입니다.");
+//		
+//		}
+//	}
+
