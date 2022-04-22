@@ -1,0 +1,42 @@
+
+public class StringTest {
+
+	public static void main(String[] args) {
+//		
+//		String str1 = "abc";
+//		String str2 = "abc";
+//		
+//		String str3 = new String("abc");
+//		String str4 = new String("abc");
+		
+//		String animals = "dog,cat,bear";
+//		String[] ani = animals.split(",");
+//		
+//		for(String s : ani) {
+//			System.out.println(s);
+//		}
+//		
+//		String str = String.join("-", ani);
+//		System.out.println(str);
+		
+		//숫자를 문자열
+//		int i = 100;
+//		String value = String.valueOf(i);
+//		System.out.println(value + 100);
+		
+		
+		//문자열을 숫자로
+//		String str = "100";
+//		int i2 = Integer.parseInt(str);
+//		System.out.println(i2 + 100);
+		
+		String fileName = "Hello.java";
+		int index = fileName.indexOf('.');		// .의 인덱스 번호 5
+		
+		String fn = fileName.substring(0,index);
+		System.out.println(fn);
+		String ext = fileName.substring(index + 1);  //.바로 뒤부터 읽어오기(끝나는 인덱스 번호를 모르기 때문에 적지 않는다.)
+		System.out.println(ext);
+	}
+
+}
