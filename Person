@@ -9,14 +9,32 @@ public class Person {
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
-		Person other = ((Person)obj);
-		if(obj instanceof Person) {
-			return this.id == other.id && this.age == other.age;	
-		}else {
-			return false;
-		}
+	  public boolean equals(Object obj) {
+	      if(obj instanceof Person) {
+	         return this.id == ((Person)obj).id && this.age ==((Person)obj).age;
+	      }else {
+	         return false;
+	      }
+	   }
+	   
+	//   @Override
+	//   public boolean equals(Object obj) {
+//	      if(obj instanceof Person) {
+//	         Person pe = ((Person)obj);
+//	         return this.id == pe.id && this.age == pe.age;
+//	      }else {
+//	         return false;
+//	      }
+	//   }
+
+	   @Override
+	   public int hashCode() {
+	      // TODO Auto-generated method stub
+	      return (id + "" + age).hashCode();
+	   }
+	   @Override
+	   public String toString() {
+	      return "Person [id=" + id + ", age=" + age + "]";
+	   }
 	}
-	
-	
-}
+
