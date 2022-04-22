@@ -1,0 +1,15 @@
+
+public class PersonTest {
+
+	public static void main(String[] args) {
+		Person p1 = new Person(8012800001L, 23);
+		Person p2 = new Person(8012800001L, 23);
+		
+		if(p1.equals(p2)) {
+			System.out.println("같은 객체");
+		}else {
+			System.out.println("다른 객체");
+		}
+	}
+
+}
