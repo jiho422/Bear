@@ -1,0 +1,7 @@
+
+public class Idcheck extends Exception {
+
+	public Idcheck(String message) {
+		super(message);
+	}
+}
