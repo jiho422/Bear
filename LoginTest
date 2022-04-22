@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class LoginTest {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 입력 : ");
+		String id = sc.next();
+		System.out.println("패스워드 입력 : ");
+		String password = sc.next();
+		
+		try {
+			Login(id, password);
+		}catch(Idcheck e) {
+			System.out.println(e.getMessage());
+		}catch(Passwordcheck e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+		public static void Login(String id, String password) throws Idcheck, Passwordcheck{
+			String fid = "abc";
+			String fpwd = "1234";
+			if(!id.equals(fid)) {
+				throw new Idcheck("아이디가 존재하지 않습니다."); 
+			}
+			if(!password.equals(fpwd)) {
+				throw new Passwordcheck("패스워드가 다릅니다.");
+			}
+			System.out.println("로그인 성공");
+		}
+}
