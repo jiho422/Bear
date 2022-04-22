@@ -1,0 +1,22 @@
+
+public class Person {
+	long id;
+	int age;
+	
+	Person(long l, int i) {
+		this.id = l;
+		this.age = i;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Person other = ((Person)obj);
+		if(obj instanceof Person) {
+			return this.id == other.id && this.age == other.age;	
+		}else {
+			return false;
+		}
+	}
+	
+	
+}
