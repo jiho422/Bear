@@ -1,0 +1,108 @@
+import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class CalendarTest {
+	public static void main(String[] args) {
+//		Calendar today = Calendar.getInstance();		//Calendar는 추상클래스이기 때문에 직접 객체를 생성할 수 없다. getInstance를 통해 객체를 생성한다.
+//		System.out.println(today.get(Calendar.YEAR));		//현재 시스템에 저장된 년도 정보를 가져온다.
+//		System.out.println(today.get(Calendar.MONTH) + 1);		//0~11까지의 현재 시스템에 저장된 달을 반환한다.(0은 1월, 11은 12월에 해당하기 때문에 1씩을 더해서 호출한다.)
+//		System.out.println(today.get(Calendar.DAY_OF_MONTH));	//현재 시스템에 저장된 일(day)의 정보를 가져온다.
+//		System.out.println(today.get(Calendar.DATE));			//DAY_OF_MONTH와 마찬가지로 일(day)의 정보를 가져온다.
+//		System.out.println(today.get(Calendar.DAY_OF_WEEK));    //1(일요일)~7(토요일)
+//		System.out.println(today.get(Calendar.HOUR));			//현재 시스템에 저장되어 있는 시(Hour)의 정보를 가져온다.
+//		System.out.println(today.get(Calendar.MINUTE));			//현재 시스템에 저장되어 있는 분(Minute)의 정보를 가져온다.
+//		System.out.println(today.get(Calendar.SECOND));			//현재 시스템에 저장되어 있는 초(Second)의 정보를 가져온다.
+//		
+//		System.out.println(today.getActualMaximum(Calendar.DATE));  //현재 시스템에 저장되어 있는 달의 제일 마지막날이 얼마나 있는지 확인 후 호출한다.(ex>4월은 30일까지라 30을 호출)
+		
+		
+//		final String[] DAY_OF_WEEK = {" ", "일", "월", "화","수","목","금"};
+//		
+//		Calendar today = Calendar.getInstance();
+//		Calendar lastday = Calendar.getInstance();
+//		
+//		lastday.set(2021,0,1);
+//		System.out.println(toString(lastday) +" "+ DAY_OF_WEEK[lastday.get(Calendar.DAY_OF_WEEK)]);
+//		System.out.println(toString(today) + " "+ DAY_OF_WEEK[today.get(Calendar.DAY_OF_WEEK)]);
+//		
+//		long diff = today.getTimeInMillis() - lastday.getTimeInMillis();
+//		diff = diff/1000;
+//		System.out.println("today와 lastday의 차이는" + diff + "초입니다");
+//		
+//		diff = diff/(60*60*24);
+//		System.out.println("today와 lastday의 차이는" + diff + "일입니다");
+//		
+//		Calendar date = Calendar.getInstance();
+//		date.set(2015,7,31);
+//		
+//		System.out.println(toString(date));
+//		date.add(Calendar.DATE, 1);
+//		System.out.println(toString(date));
+//		
+//		date.add(Calendar.MONTH, -6);				//add라는 연산자를 사용하여 달의 연산이 가능하다
+//		System.out.println(toString(date));
+//		
+//		date.roll(Calendar.DATE, 31);
+//		System.out.println(toString(date));
+		
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("년도 입력 : ");
+//		int year = sc.nextInt();
+//		System.out.println("달 입력 : ");
+//		int month = sc.nextInt();
+//		
+//		Calendar sDay = Calendar.getInstance();
+//		Calendar eDay = Calendar.getInstance();
+		
+//		sDay.set(year, month-1, 1);
+//		eDay.set(year, month, 1);
+		
+//		eDay.add(Calendar.DATE, -1);
+//		sDay.add(Calendar.DATE, 1);
+		
+		
+//		int start_day_of_week = 0;
+////		int end_day = 0;
+//		
+//		start_day_of_week = sDay.get(Calendar.DAY_OF_WEEK);
+////		end_day = eDay.get(Calendar.DATE);
+//		sDay.add(Calendar.DATE, -(start_day_of_week -1));
+//		
+//		
+//		System.out.println("    "+year+"년 "+month+"월");
+//		System.out.println(" SU MO TU WE TH FR SA");
+//		
+//		for(int i =1;i<=42;i++) {
+//			int day = sDay.get(Calendar.DATE);
+//			System.out.print((day < 10 ? "  "+day:" "+day));
+//			sDay.add(Calendar.DATE, 1);
+//			
+//			if(i % 7 == 0) {
+//			System.out.println();
+//			}
+//		}
+		
+//		for(int i = 1; i < start_day_of_week;i++) {
+//			System.out.print("   ");
+//		}
+//		for(int i = 1, n = start_day_of_week;i <= end_day;i++,n++) {
+//			System.out.print((i < 10 ? "  "+i:" "+i));
+//			
+//			if(n % 7 == 0) {
+//				System.out.println();
+//			}
+	
+	Calendar date = Calendar.getInstance();
+	Date day = date.getTime();
+	
+	SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+	System.out.println(sdf1.format(day));
+	}
+	
+
+	public static String toString(Calendar data) {  //object의 toString이 아님
+		return data.get(Calendar.YEAR) + "년"+ (data.get(Calendar.MONTH)+1) + "월"+ (data.get(Calendar.DATE)) + "일";
+	}
+}
