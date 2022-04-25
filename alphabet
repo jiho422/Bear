@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class AlphabetHistogramApp {
+	private int[] histoData = new int[26];
+	
+	public AlphabetHistogramApp() {
+		for(int i=0;i<histoData.length;i++) {
+			histoData[i] = 0;
+		}
+	}
+	
+	//입력받은 문자열로부터 히스토그램의 데이터를 만든다.
+	private void makeHistogram(String text) {
+		String s = text;
+		s = s.toUpperCase();
+		
+		for(int i =0;i<s.length();i++) {
+			char c = s.charAt(i);
+			if(c >= 'A' && c <= 'Z') {
+				int index = c - 'A';
+				histoData[index]++;
+			}
+		}
+	}
+
+	//히스토그램을 그린다.
+	private void drawHistogram() {
+		System.out.println("\n히스트그램을 그립니다.");
+		for(int i=0;i<histoData.length;i++) {
+			System.out.print((char)('A' + i));
+			for(int j=0;j<histoData[i];j++) {
+				System.out.print('-');
+			}
+			System.out.println();
+		}
+	}
+	
+	//문장입력기능
+	private String readString() {
+		System.out.println("영문 텍스트를 입력하고 세미클론을 입력하세요.");
+		StringBuffer sb = new StringBuffer();
+		Scanner sc = new Scanner(System.in);
+		while(true) {
+			String line = sc.nextLine();
+			if(line.charAt(0) == ';' && line.length() == 1) {
+				break;
+			}
+			sb.append(line);
+		}
+		return sb.toString();
+	}
+	
+	//프로그램 실행
+	public void run() {
+		String s = readString();
+		makeHistogram(s);
+		drawHistogram();	
+	}
+}
+
+
+
+
