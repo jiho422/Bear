@@ -1,0 +1,69 @@
+package collection.properties;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class PropertiesTest {
+	public static void main(String[] args) {
+		
+//		Properties prop = new Properties();
+//		prop.setProperty("timeout", "10");
+//		prop.setProperty("lang", "kr");
+//		prop.setProperty("size", "30");
+//		
+//		Enumeration e = prop.propertyNames();
+//		
+//		while(e.hasMoreElements()) {		//map에서의 hasNext()와 같은 역할 수행
+//			String element = (String)e.nextElement();
+//			System.out.println(element + " : "+ prop.getProperty(element));
+//		}
+		
+		Properties prop = new Properties();
+		String file = "input.txt";
+		
+		try {
+			prop.load(new FileInputStream(file));
+		}catch(IOException e) {
+			System.out.println("지정된 파일을 못 찾았습니다.");
+		}
+			
+		String name = prop.getProperty("name");
+		String[]data = prop.getProperty("data").split(",");
+		
+		//출력
+		//이름
+		//최댓값
+		//최솟값
+		//합계
+		//평균
+		
+		int[] score = new int[data.length];
+		
+		for(int i=0;i<data.length;i++) {
+			score[i] = Integer.parseInt(data[i]);
+		}
+		
+		int max, min;
+		int sum = 0;
+		double avg = 0;
+		max = min = score[0];
+		
+		for(int i=0;i<data.length;i++) {
+			if(max < score[i]) {
+				max = score[i];
+			}
+			if(min > score[i]) {
+				min = score[i];
+			}
+			sum += score[i];
+		}
+		avg = (double)sum/score.length;		
+		
+		System.out.println(name);		//이름
+		System.out.println(max);		//최대값
+		System.out.println(min);		//최소값
+		System.out.println(sum);		//합계
+		System.out.println(avg);		//평균
+	}
+}
