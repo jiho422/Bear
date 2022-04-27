@@ -1,0 +1,49 @@
+package collection.treeset;
+
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class TreeSetTest{
+	public static void main(String[] args) {
+
+		TreeSet set = new TreeSet();
+		
+//		for(int i=0; set.size()<6;i++) {
+//			int num = (int)(Math.random() * 45)+1;
+//			set.add(num);
+//		}
+//		
+//		System.out.println(set);
+		
+//		set.add("b");
+//		set.add("c");
+//		set.add("g");
+//		set.add("a");
+//		set.add("z");
+//		
+//		System.out.println(set);
+		
+		Student s1 = new Student("홍길동",1,1,100,100,100);
+		Student s2 = new Student("남궁성",1,2,70,80,80);
+		Student s3 = new Student("김자바",1,3,60,40,90);
+		Student s4 = new Student("이자바",1,4,100,75,20);
+		Student s5 = new Student("언자바",1,5,90,85,100);
+		
+		set.add(s1);
+		set.add(s2);
+		set.add(s3);
+		set.add(s4);
+		set.add(s5);
+		
+//		System.out.println(set);
+		
+		Iterator it = set.iterator();
+		while(it.hasNext()) {
+			Student s = (Student)it.next();
+			System.out.println(s);
+		}
+		
+	}
+}
+
+
