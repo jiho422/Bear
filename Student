@@ -1,0 +1,49 @@
+package collection.treeset;
+
+public class Student  implements Comparable{
+
+	String name;
+	int ban;
+	int no;
+	int kor, eng, math;
+	
+	public Student(String name, int ban, int no, int kor, int eng, int math) {
+		super();
+		this.name = name;
+		this.ban = ban;
+		this.no = no;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+	}
+	
+	int getTotal() {
+		return kor + eng + math;
+	}
+	
+	int getAverage() {
+		return getTotal()/3;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", ban=" + ban + ", no=" + no + ", kor=" + kor + ", eng=" + eng + ", math="
+				+ math + ", getTotal()=" + getTotal() + ", getAverage()=" + getAverage() + "]";
+	}
+	
+	@Override
+	public int compareTo(Object o) {
+		 if(o instanceof Student) {
+			 Student other = (Student)o;
+//			 return this.no - other.no;		//this에서 other의 값을 빼준다. --> 오름차순
+//			 양수, 0, 음수
+//			 return other.no - this.no;		//other에서 this의 값을 빼준다. --> 내림차순
+//			 return (this.no - other.no)*-1;   //-->내림차순
+			 
+			 return this.name.compareTo(other.name)*-1;
+			 
+		 }
+		return -1;
+	}
+}
+//
