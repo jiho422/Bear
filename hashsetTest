@@ -1,0 +1,152 @@
+package collection.hashset;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class HashSetTest {
+
+	public static void main(String[] args) {
+//		Object [] objArr = {new Integer(1),"1","2","2","3","3","4","4","4"};
+//		HashSet set = new HashSet();		//import를 자동으로 삽입하는 단축키 = ctrl+shift+o
+//		
+//		for(int i=0;i<objArr.length;i++) {
+//			set.add(objArr[i]);
+//		}
+//		System.out.println(set);		//set은 중복을 허용하지 않으며 순서도 순차적으로 출력하지 않는다.
+		
+//		HashSet set = new HashSet();
+		
+//		for(int i=0;set.size()<6;i++) {					//size를 6으로 고정하여 중복되는 값없이 6개의 숫자가 랜덤으로 뽑혀 나오게 한 것
+//			int lotto = (int)(Math.random() * 45) + 1;			
+//			set.add(lotto);
+//		}
+//		
+//		System.out.println(set);	
+		
+		
+		HashSet set = new HashSet();
+		int[][]board = new int[5][5];
+		
+		for(int i=0;set.size()<25;i++) {					//size를 6으로 고정하여 중복되는 값없이 6개의 숫자가 랜덤으로 뽑혀 나오게 한 것			
+			set.add((int)(Math.random() * 50) + 1);
+		}
+		
+		ArrayList list = new ArrayList(set);
+		Collections.shuffle(list);
+		
+		Iterator it = list.iterator();
+		
+		for(int i=0;i<board.length;i++) {
+			for(int j=0;j<board[i].length;j++) {
+				board[i][j] = (int)it.next();
+			}
+		}
+			
+			
+//			while(it.hasNext()) {
+//				int num = (int)it.next();
+//				System.out.println(num);
+//			}
+			
+		for(int i=0;i<board.length;i++) {
+			for(int j=0;j<board[i].length;j++) {
+				System.out.print(board[i][j] + "	");
+			}
+			System.out.println();
+		}
+		System.out.println("=====================");
+		
+		run(board);
+		}
+		
+	public static void run(int[][] board) {
+		System.out.println("빙고 게임을 시작합니다.");
+		
+		boolean go = true;
+		Scanner sc = new Scanner(System.in);
+		while(go) {
+			System.out.println("1~50 사이의 숫자를 입력하세요");
+			System.out.print(">> ");
+			int bingo = sc.nextInt();
+			
+			for(int i=0;i<board.length;i++) {
+				for(int j=0;j<board[i].length;j++) {
+					if(board[i][j] == bingo) {
+						board[i][j] = 0;
+					}
+				}
+			}
+			
+			//숫자 확인
+			for(int i=0;i<board.length;i++) {
+				for(int j=0;j<board[i].length;j++) {
+					System.out.print(board[i][j] + "	");
+				}
+				System.out.println();
+			}
+			
+			//가로, 세로줄 한 줄이 맞으면 성공 출력
+			for(int i=0;i<board.length;i++) {
+				int sum = 0;
+				int sum1 = 0;
+				for(int j=0;j<board[i].length;j++) {
+					sum += board[i][j];
+					sum1 += board[j][i];
+				}
+				if(sum == 0 || sum1 == 0) {
+					go =false;
+					System.out.println("빙고 성공");
+					System.out.println("Game Over");
+					break;
+				}
+			}
+			//i=j일 때의 대각선 줄이 맞으면 성공 출력
+			for(int i=0;i<board.length;i++) {
+				int sum = 0;
+				for(int j=i;j<board[i].length;j++) {
+					sum += board[i][j];
+				}
+				if(sum == 0) {
+					go =false;
+					System.out.println("빙고 성공");
+					System.out.println("Game Over");
+					break;
+				}
+			}
+			//i+j=4일 때의 대각선 줄이 맞으면 성공 출력
+			for(int i=0;i<board.length;i++) {
+				int sum = 0;
+				for(int j=board[i].length-1-i;j>=0;j--) {
+					sum += board[i][j];
+				}
+				if(sum == 0) {
+					go =false;
+					System.out.println("빙고 성공");
+					System.out.println("Game Over");
+					break;
+				}
+			}
+		}
+		
+//		String s1 = Integer.toString(a);
+//		while(true) {
+//			if(board.toString().equals("0")) {
+//			System.out.println("모든 빙고를 완료하였습니다. 게임을 종료합니다.");
+//			break;
+//			}else {
+//			s1 = "0";
+//			}
+//		}
+		
+	}
+	
+	
+}
+			
+		
+	
+
+		
