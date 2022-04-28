@@ -1,0 +1,20 @@
+package com.thread;
+
+public class ThreadTest {
+	public static void main(String[] args) {
+		//쓰레드 클래스 정의하기
+		//1. Thread 클래스 사용하기
+		//2. Runnable 인터페이스 사용하기
+		
+		ThreadEx1 th1 = new ThreadEx1();
+		th1.start();
+		
+		Runnable r = new ThreadEx2();			//인터페이스로 만들게 되면 직접 스레드 클래스를 호출할 수 없기 때문에
+		Thread th2 = new Thread(r);				//r이라는 매개변수를 만들어서 사용하게 되면
+		
+		System.out.println("\t");
+		th2.start();							//start() 메소드를 사용할 수 있게 된다
+		//스레드는 항상 순서대로 돌지 않는다 || 순서가 바뀌는게 허다하다 || 해주세요만 가능(start() : 부탁만 가능)
+		//스레드는 한번 만들고 나면 연속으로 돌지 않고 다시 시작해야한다(연속 start() 불가능)
+	}
+}
