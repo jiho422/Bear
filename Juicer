@@ -1,0 +1,12 @@
+package com.generic;
+
+public class Juicer {
+	static <T extends Fruit> Juice makeJuice(FruitBox<T> box) {       // static Juice makeJuice(FruitBox<? extends Fruit> box) -> 본래 형태, ? extends Fruit를 T로 치환하여 상한 제한(와일드 카드)
+		String tmp = "";
+		
+		 for(Fruit f : box.getList()) {	//box.getList() : ArrayList<T> list의 과일 정보 리스트를 가져올 수 있다.
+			 tmp += f +" ";
+		 }
+		 return new Juice(tmp);
+	}
+}
