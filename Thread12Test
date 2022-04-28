@@ -1,0 +1,20 @@
+package com.thread;
+
+public class ThreadEx12Test {
+
+	public static void main(String[] args) {
+		ThreadEx12_1 th1 = new ThreadEx12_1();
+		ThreadEX12_2 th2 = new ThreadEX12_2();
+		
+		th1.start();
+		th2.start();
+		
+		try{
+			Thread.sleep(1000);		//th1.sleep = th1이 아니라 main 메소드를 sleep시키란 얘기이기 때문에 "main Thread 종료"가 제일 마지막에 출력된다.
+		}catch(InterruptedException e) {
+			
+		}
+		
+		System.out.println("main Thread 종료");
+	}
+}
