@@ -1,0 +1,5 @@
+package com.generic;
+
+public class FruitBox<T extends Fruit & Eatable> extends Box<T> {		//제네릭에서는 implements가 아니라 extends 사용해야만 한다.(클래스와 인터페이스 모두 묶어서 한번에 상속관계 처리)
+	
+}
