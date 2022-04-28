@@ -1,0 +1,10 @@
+package com.generic;
+
+public class Fruit implements Eatable {
+
+	@Override
+	public String toString() {
+		return "Fruit";
+	}
+	
+}
