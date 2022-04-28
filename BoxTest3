@@ -1,0 +1,10 @@
+package com.generic;
+
+public class BoxTest3 {
+	public static void main(String[] args) {
+		//와일드 카드
+		//<? extends T> : 와일드 카드의 상한 제한 T와 그 자손들만 가능
+		//<? super T> : 와일드 카드의 하한 제한 T와 그 조상들만 가능
+		//<?> : 제한 없음
+	}
+}
