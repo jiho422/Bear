@@ -1,0 +1,10 @@
+package com.generic;
+
+public class Toy {
+
+	@Override
+	public String toString() {
+		return "Toy";
+	}
+
+}
