@@ -1,0 +1,51 @@
+package com.generic.arraylist;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class ArrayListTest {
+	public static void main(String[] args) {
+//		ArrayList<Integer> list = new ArrayList();
+//		list.add(new Integer(1));		//Integer 변수로 사용
+//		
+////		System.out.println(list.get(0));
+//		
+//		Iterator<Integer> it = list.iterator();		//타입을 정해서 사용할 수 있다. -> 타입변환할 필요가 없다.
+//		while(it.hasNext()) {
+//			System.out.println(it.next());
+//		}
+		
+		HashMap<String, Integer> scoreMap = new HashMap<String, Integer>();
+		
+		scoreMap.put("김길동", 90);
+		scoreMap.put("이자바", 50);
+		scoreMap.put("박자바", 90);
+		scoreMap.put("최길동", 70);
+		scoreMap.put("이순신", 100);
+		
+		
+//		Set<String> keys = scoreMap.keySet();
+//		
+//		Iterator<String> it = keys.iterator();
+//		
+//		while(it.hasNext()) {
+//			System.out.println(it.next());
+//		}
+		
+//		Set<Map.Entry<String, Integer>> entrySet = scoreMap.entrySet();
+//		Iterator<Map.Entry<String, Integer>> entries = entrySet.iterator();
+//		
+//		while(entries.hasNext()) {
+//			Map.Entry<String, Integer> entry = entries.next();
+//			System.out.println(entry.getKey() + " : " + entry.getValue());
+//		}
+		
+		for(Map.Entry<String, Integer> entry : scoreMap.entrySet()) {
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		}
+		
+		
+	}
+}
