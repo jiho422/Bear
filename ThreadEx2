@@ -1,0 +1,11 @@
+package com.thread;
+
+public class ThreadEx2 implements Runnable {
+
+	@Override
+	public void run() {			//스레드 만드는 방법 두번째
+		for(int i=0;i<5;i++) {
+			System.out.println(Thread.currentThread().getName());		//runnable 인터페이스에서 스레드의 이름을 출력하고 싶을 때는 Thread.currentThread().getName()를 사용한다
+		}
+	}
+}
