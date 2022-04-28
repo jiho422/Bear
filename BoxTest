@@ -1,0 +1,31 @@
+package com.generic;
+
+public class BoxTest {
+	public static void main(String[] args) {
+		Box<Fruit> fruitBox = new Box<Fruit>();
+		Box<Apple> appleBox = new Box<Apple>();
+//		Box<Grape> grapeBox = new Box<Apple>();		//앞과 뒤의 generic type은 일치해야 한다.    <Grape>와 <Apple> 타입 일치X 오류
+		Box<Grape> grapeBox = new Box<Grape>();
+		Box<Toy> toyBox = new Box<Toy>();
+		
+		fruitBox.add(new Fruit());
+		fruitBox.add(new Apple());		//상속 관계 : 다형성
+		fruitBox.add(new Grape());
+		
+		grapeBox.add(new Grape());
+		grapeBox.add(new Grape());
+
+		appleBox.add(new Apple());
+		appleBox.add(new Apple());
+//		appleBox.add(new Toy());		//타입 불일치 error
+		
+		toyBox.add(new Toy());
+		toyBox.add(new Toy());
+//		toyBox.add(new Apple());		//타입 불일치 error
+		
+		System.out.println(fruitBox);
+		System.out.println(grapeBox);
+		System.out.println(appleBox);
+		System.out.println(toyBox);
+	}
+}
