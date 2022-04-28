@@ -1,0 +1,37 @@
+package com.generic;
+
+import java.util.ArrayList;
+
+public class Box <T> {		//제네릭의 사용처 : 타입을 정의하지 않고 임의로 저장한 다음 타입을 생성(타입의 안정성)
+
+	ArrayList<T> list = new ArrayList<T>();
+	void add(T item) {
+		list.add(item);
+	}
+	T get(int i) {
+		return list.get(i);
+	}
+	int size() {
+		return list.size();
+	}
+	public String toString() {
+		return list.toString();
+	}
+	
+//	T item;
+//	
+//	T getItem() {
+//		return item;
+//	}
+//	
+//	void setItem(T item) {
+//		this.item = item;
+//	}
+}
+
+//생성방법
+//Box <String> box = new Box<String>();
+//Box <Integer> box1 = new Box<Integer>();
+
+//기존 collection
+//ArrayList<String> list = new ArrayList<String>();
