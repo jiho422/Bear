@@ -1,0 +1,19 @@
+package com.thread.synchron;
+
+public class ThreadWaitTest {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		Table table = new Table();
+		
+		new Thread(new Cook(table),"COOK").start();	// Thread를 새롭게 생성, 실행하는 방법.
+		new Thread(new Customer(table,"donut"),"CUST1").start();	// Thread를 새롭게 생성, 실행하는 방법.
+		new Thread(new Customer(table,"burger"),"CUST2").start();	// Thread를 새롭게 생성, 실행하는 방법.
+		
+		
+		Thread.sleep(2000);
+		System.exit(0);
+	}
+
+}
