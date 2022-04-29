@@ -1,0 +1,28 @@
+package com.thread.synchron;
+
+public class Cook implements Runnable {
+
+	private Table table;
+	
+	public Cook(Table table) {
+		super();
+		this.table = table;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(true) {
+			// 임의의 요리를 하나 선택에서 table에 추가한다.
+			int index = (int)(Math.random() * table.dishNum());
+			table.add(table.dishNames[index]);
+			
+			try {
+				Thread.sleep(10);
+			}catch(InterruptedException e) {
+				
+			}
+		}
+	}
+
+}
