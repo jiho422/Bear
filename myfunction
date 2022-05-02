@@ -1,0 +1,6 @@
+package lambdaProject;
+
+@FunctionalInterface
+public interface myFunction {			//람다식은 이름이 없기 때문에 함수형 인터페이스를 만들어서 사용하게 된다. 함수형 인터페이스는 추상메소드 하나만 있는 인터페이스이다. 대신 함수형 인터페이스에는 단 하나의 추상메소드만 있어야한다.
+	int max(int a, int b);
+}
