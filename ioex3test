@@ -1,0 +1,43 @@
+package streamProject;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
+
+public class IOEx3Test {
+
+	public static void main(String[] args) {
+		byte[] inSrc = {0,1,2,3,4,5,6,7,8,9};
+		byte[] outSrc = null;
+		
+		byte[] temp = new byte[4];
+		
+		ByteArrayInputStream input = null;
+		ByteArrayOutputStream output = null;
+		
+		input = new ByteArrayInputStream(inSrc);
+		output = new ByteArrayOutputStream();
+		
+		System.out.println("input src : " + Arrays.toString(inSrc));
+		
+		try {
+			while(input.available() > 0) {    //처음 크기는 10 -> 6으로 줄어듦 -> 2로 줄어듦 -> 0, 해당 inputstream의 값을 0이상까지 읽어오기	
+				input.read(temp);		//read(byte[] temp)    0,1,2,3 -> 4,5,6,7 -> 8,9
+				output.write(temp);		//0,1,2,3 -> 4,5,6,7 -> 8,9,6,7
+				
+				outSrc = output.toByteArray();
+				printArrays(temp, outSrc);
+			}
+			
+		}catch(IOException e) {
+			
+		}
+	}
+	
+	static void printArrays(byte[] temp, byte[] outSrc) {
+		System.out.println("temp :"+ Arrays.toString(temp));
+		System.out.println("output src :"+ Arrays.toString(outSrc));
+	}
+
+}
