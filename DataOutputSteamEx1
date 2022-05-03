@@ -1,0 +1,29 @@
+package streamProject;
+
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class DataOutputSteamEx1 {
+
+	public static void main(String[] args) {
+		FileOutputStream fos = null;
+		DataOutputStream dos = null;		//기본형 데이터들(ex> 숫자, 문자)에 대해 수월하게 입출력할 수 있게 도와주는 스트림
+		
+		try {
+			fos = new FileOutputStream("sample.dat");
+			dos = new DataOutputStream(fos);
+			
+			dos.writeInt(10);
+			dos.writeFloat(20.3f);
+			dos.writeBoolean(true);
+			
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
