@@ -1,0 +1,31 @@
+package streamProject;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileConversion {
+
+	public static void main(String[] args) {
+		
+		try {
+			FileReader fr = new FileReader("src/streamProject/FileConversion.java");
+			FileWriter wr = new FileWriter("conversion.txt");
+			
+			int data = 0;
+			
+			while((data = fr.read()) != -1) {
+				if(data != '\t' && data != '\n' && data != ' ' && data != '\r') {		//순수하게 문자만 출력하고 싶을 때만 사용
+					wr.write(data);					
+				}
+			}
+			fr.close();
+			wr.close();
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
