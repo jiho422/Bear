@@ -1,0 +1,49 @@
+package omoke;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class DrawBoard extends JPanel{
+	private MapSize size;
+	private Map map;
+	private final int STONE_SIZE = 28;
+	public DrawBoard(MapSize m, Map map) {
+		setBackground(new Color(206,167,61));
+		size=m;
+		setLayout(null);
+		this.map=map;
+	}
+	public void paintComponent(Graphics arg0) {
+		super.paintComponent(arg0);
+		arg0.setColor(Color.BLACK);
+		board(arg0);
+		drawStone(arg0);
+	}
+	public void board(Graphics arg0) {
+		for(int i=1;i<=size.getSIZE();i++) {
+			arg0.drawLine(size.getCELL(), i*size.getCELL(),size.getCELL()*size.getSIZE(),i*size.getCELL());
+			arg0.drawLine(i*size.getCELL(), size.getCELL(), i*size.getCELL() , size.getCELL()*size.getSIZE()); 
+		}
+	}
+	public void drawStone(Graphics arg0) {
+		for(int y=0;y<size.getSIZE();y++){
+			 for(int x=0;x<size.getSIZE();x++){
+				 if(map.getXY(y, x) == map.getBlack()) {
+					 drawBlack(arg0,x,y);
+				 }else if(map.getXY(y, x)==map.getWhite()) {
+					 drawWhite(arg0, x, y);
+				 }
+			}
+		}
+	}
+	public void drawBlack(Graphics arg0, int x, int y) {
+		arg0.setColor(Color.BLACK);
+		arg0.fillOval((x+1)*size.getCELL()-15, y*size.getCELL()+15, STONE_SIZE, STONE_SIZE);
+	}
+	public void drawWhite(Graphics arg0, int x, int y) {
+		arg0.setColor(Color.WHITE);
+		arg0.fillOval(x*size.getCELL()+15, y*size.getCELL()+15, STONE_SIZE, STONE_SIZE);
+	}
+}
